@@ -6,9 +6,13 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,10 +28,21 @@ import com.bristol.snorediaby.R;
 import com.bristol.snorediaby.beans.Calendars;
 import com.bristol.snorediaby.common.enums.ButtonStateEnum;
 import com.bristol.snorediaby.common.enums.DrawInstantEnum;
+import com.bristol.snorediaby.domain.LuxStorage;
+import com.bristol.snorediaby.domain.SnoreStorage;
+import com.bristol.snorediaby.modules.LuxRecorder;
+import com.bristol.snorediaby.modules.SnoreRecorder;
+import com.bristol.snorediaby.services.AlarmService;
+import com.bristol.snorediaby.sqllite.CustomSqlLite;
 import com.bristol.snorediaby.utils.StringUtil;
 import com.bristol.snorediaby.utils.exception.SnoreException;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.Objects;
 
 import static android.content.Context.ALARM_SERVICE;
 
@@ -69,6 +84,66 @@ public class AlarmFragment extends Fragment implements View.OnClickListener {
     private LuxDyFragment ldFragment;
     private SoundDyFragment sdFragment;
     private FragmentManager fm;
+
+    private final Handler luxHandler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            if (Objects.equals(1, msg.what)) {
+                setLux("view", valueLux);
+            }
+            return false;
+        }
+    });
+
+    private final Runnable task = new Runnable() {
+        @Override
+        public void run() {
+            valueLux = luxRecorder.getCurrentLux();
+            setLux("add", valueLux); //此處執行任務
+            ldFragment.addEntry(valueLux);
+            luxHandler.sendEmptyMessage(1);
+            luxHandler.postDelayed(this, (long) (luxRange * 1000)); //預設延遲30秒,再次執行task本身,實現了迴圈的效果
+        }
+    };
+
+    private final Handler vibHandler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            //         move_v.setText(String.valueOf(vibrateRecorder.getShake()));
+            if (Objects.equals(1, msg.what)) {
+                sound_v.setText(String.valueOf(valueDB));
+                if (addEntry) sdFragment.addEntry(valueDB);
+            }
+            return false;
+        }
+    });
+
+    private final Runnable task2 = new Runnable() {
+        @Override
+        public void run() {
+            valueDB = snoreRecorder.getVolume();
+            vibHandler.sendEmptyMessage(1);
+            vibHandler.postDelayed(this, 0);
+        }
+    };
+
+    private final Handler mHandler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1:
+                    if (!isstop) { // 添加更新ui的代碼
+                        updateTimeView();
+                        countSnore();
+                        mHandler.sendEmptyMessageDelayed(1, 1000);
+                    }
+                    break;
+                case 0:
+                    break;
+            }
+            return false;
+        }
+    });
 
     public AlarmFragment() {
         // Required empty public constructor
@@ -355,6 +430,149 @@ public class AlarmFragment extends Fragment implements View.OnClickListener {
                 context.startService(my_intent);
                 alarmManager.cancel(pending_intent);
             }
+        }
+    }
+
+    private void updateTimeView() {
+        timeusedinsec += 1;
+        time_v.setText(String.valueOf(timeusedinsec));
+        int hour = (int) (timeusedinsec / 60 / 60) % 60;
+        int minute = (int) (timeusedinsec / 60) % 60;
+        int seconds = (int) (timeusedinsec % 60);
+        hour_v.setText(calend.formatZero(hour));
+        mint_v.setText(calend.formatZero(minute));
+        sec_v.setText(calend.formatZero(seconds));
+    }
+
+    private void setLux(String cases, Float currentLux) {
+        String current_time = calend.findCalendar();
+
+        switch (cases) {
+            case "add":
+                LuxStorage luxStorage;
+                luxStorage = new LuxStorage(current_time, currentLux);
+                luxRecorder.inputList(luxStorage);
+                break;
+            case "view":
+                lux_v.setText(String.valueOf(currentLux));
+                luxRecorder.checkLuxAlert();
+                break;
+        }
+    }
+
+    private void setSnore(String cases, int cSnore, int cOSA) {
+        String current_time = calend.findCalendar();
+
+        switch (cases) {
+            case "add":
+                SnoreStorage sS = new SnoreStorage(current_time, cSnore, cOSA);
+                snoreRecorder.inputList(sS);
+                break;
+            case "view":
+                snore_v.setText(String.valueOf(cSnore));
+                osa_v.setText(String.valueOf(cOSA));
+                stopsnore_v.setText(String.valueOf(snoreRecorder.getNormalBreath()));
+                break;
+        }
+    }
+
+    private void countSnore() {
+        int cS = snoreRecorder.getCountSnoring();
+        int bA = snoreRecorder.getBreathAlert();
+
+        setSnore("view", cS, bA); //每1秒改變view一次
+        if ((timeusedinsec % 3600) == 0) { //每小時記錄一次
+            if (blockSnore == 0) {
+                blockSnore = cS; //初始化
+            } else {
+                blockSnore = cS - blockSnore;
+            }
+
+            if (blockOSA == 0) {
+                blockOSA = bA;
+            } else {
+                blockOSA = bA - blockOSA;
+            }
+
+            setSnore("add", blockSnore, blockOSA);
+            blockSnore = cS; //記錄此時段的size為下一時段做準備
+            blockOSA = bA;
+        }
+    }
+
+    private void stopSnore() {
+        snoreRecorder.stopSnoreRecorder();
+
+        int cS = snoreRecorder.getCountSnoring();
+        int bA = snoreRecorder.getBreathAlert();
+        blockSnore = cS - blockSnore;
+        blockOSA = bA - blockOSA;
+        setSnore("view", cS, bA);
+        setSnore("add", blockSnore, blockOSA);
+
+        float cL = luxRecorder.getCurrentLux();
+        setLux("view", cL);
+        setLux("add", cL);
+
+        snoreTatal = cS;
+        Date mEndDate = new Date(); //結束日期
+        double dur = mEndDate.getTime() - mStartDate.getTime(); //睡眠時長(毫秒)
+        dur = dur / 1000;
+        //打呼百分比
+        double vital = snoreRecorder.snorePercent(dur, snoreTatal);
+        snorePer = String.format(Locale.CHINA, "%.2f%%", vital); //換算小數點
+        //亮度百分比
+        float lux_per = (float) luxRecorder.getLuxAlert() / luxRecorder.getListSize() * 100;
+        luxPer = String.format(Locale.CHINA, "%.2f%%", lux_per);
+
+        snoreRecorder.clearCountSnoring();
+    }
+
+    private void saveData() {
+        int lA = luxRecorder.getLuxAlert();
+        int bA = snoreRecorder.getBreathAlert();
+        double sleepHour = (double) (timeusedinsec / 60 / 60); //get the sleepHour
+
+        CustomSqlLite dbHelp = new CustomSqlLite(getActivity()); //insert into sqlite
+        final SQLiteDatabase sqLiteDatabase = dbHelp.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("start_time", start_time);
+        cv.put("end_time", end_time);
+        cv.put("sleepHour", sleepHour);
+        cv.put("timeOfSleep", timeToBed);
+        cv.put("snore_times", snoreTatal);
+        cv.put("snore_per", snorePer);
+        cv.put("lux_alert", lA);
+        cv.put("lux_per", luxPer);
+        cv.put("osa_times", bA);
+        sqLiteDatabase.insert("records", null, cv);
+
+        ArrayList<LuxStorage> luxList = luxRecorder.getLuxList();
+        try { //單一ArrayList存進sqlite裡
+            ByteArrayOutputStream fis = new ByteArrayOutputStream();
+            ObjectOutputStream ois = new ObjectOutputStream(fis);
+            ois.writeObject(luxList);
+            byte[] tbyte2 = fis.toByteArray();
+
+            String sql = "insert into lux values(null, ?);"; // 幾個？就在new object就要加入幾個資料值
+            Object[] args = new Object[] { tbyte2 };
+            sqLiteDatabase.execSQL(sql, args);
+        } catch (Exception e) {
+            Log.e(TAG, "lux insert table error");
+        }
+
+        ArrayList<SnoreStorage> snoreList = snoreRecorder.getSnoreList();
+        try {
+            ByteArrayOutputStream fis = new ByteArrayOutputStream();
+            ObjectOutputStream ois = new ObjectOutputStream(fis);
+            ois.writeObject(snoreList);
+            byte[] tbyte3 = fis.toByteArray();
+
+            String sql = "insert into snoreblock values(null, ?);";
+            Object[] args = new Object[] { tbyte3 };
+            sqLiteDatabase.execSQL(sql, args);
+        } catch (Exception e) {
+            Log.e(TAG, "snoreblock insert table error");
         }
     }
 

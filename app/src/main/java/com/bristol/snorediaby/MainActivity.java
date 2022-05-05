@@ -8,13 +8,18 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
-import com.bristol.snorediaby.view.instruct.InstructFragment;
+import com.bristol.snorediaby.fragments.AlarmFragment;
+import com.bristol.snorediaby.fragments.ListFragment;
 import com.bristol.snorediaby.utils.exception.SnoreException;
+import com.bristol.snorediaby.view.advance.AdvanceFragment;
+import com.bristol.snorediaby.view.instruct.InstructFragment;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -85,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                     if (alarmFragment == null) {
                         alarmFragment = new AlarmFragment(); //初始化alarmFragment
                         transaction.add(R.id.layFrame, alarmFragment);
-                        list.add(alarmFragment);
+                        listFragments.add(alarmFragment);
                     } else {
                         transaction.show(alarmFragment);
                     }
@@ -94,21 +99,21 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
                     if (listFragment == null) {
                         listFragment = new ListFragment();
                         transaction.add(R.id.layFrame, listFragment).addToBackStack(null);
-                        list.add(listFragment);
+                        listFragments.add(listFragment);
                     } else {
                         transaction.remove(listFragment);
                         //listFragment = null;
                         listFragment = new ListFragment();
                         transaction.add(R.id.layFrame, listFragment).addToBackStack(null);
                         int i = checkList(listFragment);
-                        list.set(i, listFragment);
+                        listFragments.set(i, listFragment);
                     }
                     break;
                 case 2:
                     if (advanceFragment == null) {
                         advanceFragment = new AdvanceFragment();
                         transaction.add(R.id.layFrame, advanceFragment).addToBackStack(null);
-                        list.add(advanceFragment);
+                        listFragments.add(advanceFragment);
                     } else {
                         transaction.show(advanceFragment);
                     }
@@ -162,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private void checkPermission() {
         //檢查是否取得權限
         int perAudio = ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO);
-        int perWStoFr = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int perWStor = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int perRStor = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
 
         //沒有權限時

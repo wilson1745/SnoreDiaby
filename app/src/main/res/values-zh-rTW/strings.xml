@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <string name="app_name">SnoreDiaby</string>
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="_00_00" tools:ignore="ExtraTranslation">00:00</string>
+  <string name="_00">00</string>
+  <string name="_0">0</string>
+  <string name="maohao">:</string>
+  <string name="dot">…</string>
+
+  <string name="light">亮度</string>
+  <string name="sound">分貝</string>
+  <string name="sleep_on">睡眠開始</string>
+  <string name="sleep_off">睡眠結束</string>
+  <string name="start_sleep">偵測開始</string>
+  <string name="wake_me_up_at">"響鈴於&#160;:&#160;"</string>
+  <string name="snore">打呼</string>
+  <string name="_10">亮度記錄頻率 (次/秒)&#160;&#160;&#160;預設 30 秒</string>
+  <string name="_60_db">填分貝數&#160;&#160;&#160;預設 50 分貝</string>
+  <string name="light_alert_default_5_lx">亮度警報&#160;&#160;&#160;預設 5 lx</string>
+  <string name="lx">勒克司</string>
+  <string name="s">秒</string>
+  <string name="db">分貝</string>
+  <string name="light_display">亮度顯示</string>
+  <string name="normal">正常</string>
+  <string name="random">亂數</string>
+  <string name="sleep_mode">睡眠模式</string>
+  <string name="night">夜間</string>
+  <string name="nap">休憩</string>
+  <string name="snoring_vibration">打呼震動</string>
+  <string name="no">否</string>
+  <string name="yes">是</string>
+  <string name="move">移動</string>。
+  <string name="th">次</string>
+  <string name="sec_s">時間</string>
+  <string name="list_fragment">
+        以下是您的睡眠追蹤紀錄，有兩種操作方式：\n
+        &#160;1. 點選日期即可進入觀看個別資料。\n
+        &#160;2. 長按日期決定是否刪除個別資料</string>
+  <string name="date">日期</string>
+  <string name="snore_per">打呼 %</string>
+  <string name="light_per">亮度 %</string>
+  <string name="confirm">確認</string>
+  <string name="cancel">取消</string>
+  <string name="english">英文</string>
+  <string name="traditional_chinese">繁體中文</string>
+  <string name="simplified_chinese">簡體中文</string>
+  <string name="warning_the_system_will">警告!\n請勿在睡眠偵測中切換語言，系統會因此中斷。\n確定要切換語言?!\n </string>
+  <string name="send_us_a_feedback">請填寫您的意見</string>
+  <string name="subject">主旨</string>
+  <string name="message">內容</string>
+  <string name="send">寄送</string>
+  <string name="clear">消除</string>
+  <string name="evaluation">評估</string>
+  <string name="bmi">BMI</string>
+  <string name="revise">修改</string>
+  <string name="_null">無</string>
+  <string name="age">年齡</string>
+  <string name="sex">性別</string>
+  <string name="height">身高</string>
+  <string name="weight">體重</string>
+  <string name="textview">文字</string>
+  <string name="personal_info">個人資訊</string>
+  <string name="warning">警告!</string>
+  <string name="delete_rec">是否真的要刪除所有紀錄?</string>
+  <string name="delete_individual">確定要刪除此次紀錄?</string>
+  <string name="data_gone">紀錄都已刪除</string>
+  <string name="yes_">是</string>
+  <string name="no_">否</string>
+  <string name="language_">語言</string>
+  <string name="enter_subject">請您輸入主旨</string>
+  <string name="enter_messeage">請您輸入內容</string>
+  <string name="example_added">範例已輸入</string>
+  <string name="feedback">意見回饋</string>
+  <string name="click_here_tracking">點選此處開始睡眠偵測</string>
+  <string name="click_the_alarm">點選"時間"設定鬧鐘</string>
+  <string name="count_start">睡眠計時&#160;</string>
+  <string name="count_finish">睡眠時間&#160;</string>
+  <string name="osa">OSA</string>
+  <string name="stop_snore">打呼停止</string>
+  <string name="sleep_ana">睡眠綜合分析評分:</string>
+  <string name="sleep_sug">睡眠建議:</string>
+  <string name="snore_permao">打呼 %:</string>
+  <string name="light_permao">亮度 %:</string>
+  <string name="hours_of_sleep">睡眠小時&#160;:&#160;</string>
+  <string name="time_to_bed">約略入睡時間&#160;:&#160;</string>
+  <string name="suggestion_mao">建議:</string>
+  <string name="sug_breath_times">(一小時的呼吸次數約略為960次)</string>
+  <string name="light_trend">亮度趨勢:</string>
+  <string name="snoring_interval">打呼區間:</string>
+  <string name="hr_s">小時</string>
+  <string name="not_calculated_after_5_am">(超過凌晨五點不併入計算)</string>
+  <string name="diary">個人日記:</string>
+  <string name="write_your_diary_here">請在此填寫文字…</string>
+  <string name="add_diary">新增日記</string>
+  <string name="save">保存</string>
+  <string name="snoring_mao">打呼次數&#160;:&#160;</string>
+  <string name="start_track">睡眠偵測</string>
+  <string name="sleep_rec">睡眠紀錄</string>
+  <string name="advance_opt">進階選項</string>
+  <string name="instruc">資訊導引</string>
+  <string name="osa_times">呼吸障礙&#160;:&#160;</string>
+  <string name="dia_null">無</string>
+  <string name="bar_serious">嚴重</string>
+  <string name="bar_medium">呼吸障礙</string>
+  <string name="bar_slight">有可能呼吸障礙</string>
+  <string name="bar_thr">次數/小時</string>
+  <string name="obstructive_sleep_apnea">睡眠呼吸障礙:</string>
+  <string name="lux">亮度 (lux)</string>
+  <string name="limit_lux">建議限制 (5 lux)</string>
+  <string name="file_fail">創建文件失敗</string>
+  <string name="no_microphone">沒有麥克風權限</string>
+  <string name="snore_none">
+        呼吸正常。每小時鼾聲次數小於最多可能次數的10%，即每小時鼾聲少於96次。
+    </string>
+  <string name="snore_slight">
+        打呼程度輕微。每小時鼾聲次數在最多可能次數的10%–20%之間，即每小時鼾聲在96–288次之間。您睡眠時偶爾有打呼，
+        可能過度疲勞的狀態睡著後，會無意識的用口多吸氧氣，以消除疲勞。這會使得軟齶等軟組織加劇震動。
+    </string>
+  <string name="snore_medium">
+        打呼程度中等。每小時鼾聲次數在最多可能次數的20%–40%之間，即每小時鼾聲在288–480次之間。請多觀察幾天，
+        觀察自己是否會日間嗜睡、注意力不集中。
+    </string>
+  <string name="snore_serious">
+        打呼程度嚴重。每小時鼾聲次數大於最多可能次數的40，即每小時鼾聲超過480次。
+        您打呼比例有點過多，這樣身體容易產生胰島素阻抗。
+    </string>
+  <string name="osa_unlike">沒有呼吸障礙。每小時5次之內且整夜睡眠在30次之內。</string>
+  <string name="osa_maybe">有呼吸障礙可能。每小時5–10次之間或整夜睡眠在30–50次之間。</string>
+  <string name="osa_yes">具有呼吸障礙。每小時10次以上且整夜睡眠在50次以上。</string>
+  <string name="osa_bug">被你抓到漏洞囉!!!</string>
+  <string name="lux_yes">睡眠暴露於光照下會抑制睡眠激素(褪黑素)分泌，也會使身材不易維持。褪黑素可以調節睡眠覺醒週期，也能維持血糖水平。</string>
+  <string name="lux_no">您的睡眠環境不錯，系統在夜間沒有偵測到什麼燈光。</string>
+  <string name="lux_up">另外，您是否於夜間起床活動次數太多，這樣會直接影響到您的睡眠品質。</string>
+  <string name="example_sug">您在規定時間起床，希望您繼續保持。還有，您的睡眠太短會導致胰島素敏感性降低，從而擾亂血糖代謝等調節能力。另外，您太晚睡會錯過入睡淺眠期。</string>
+  <string name="underweight">體重過輕</string>
+  <string name="normal_weight">正常體重</string>
+  <string name="overweight">體重超標</string>
+  <string name="obesity">體重已過重</string>
+  <string name="permission_not">許可權未獲取</string>
+  <string name="sreen_unlock">螢幕解鎖</string>
+  <string name="sleep_nine">您的睡眠時間太長了！是否有可能是昨晚睡眠品質差導致白天感到昏沉。</string>
+  <string name="sleep_good">您的睡覺時長很健康！</string>
+  <string name="sleep_short">您的睡眠太短會導致胰島素敏感性降低，從而擾亂血糖代謝等調節能力。</string>
+  <string name="sleep_bug_first">被你抓到漏洞囉囉!!!!</string>
+  <string name="sleep_21">另外，您很健康喔，這麼早就就寢了。</string>
+  <string name="slee_23">另外，您太晚睡會錯過入睡淺眠期。</string>
+  <string name="sleep_0">另外，超過晚上12點才睡會錯過肝臟排除毒素的旺盛期。</string>
+  <string name="sleep_3">另外，此時休眠期是人體最脆弱的時刻，請勿超過這個時間。</string>
+  <string name="sleep_6">另外，您已經整個日夜顛倒，請調整作息！</string>
+  <string name="sleep_11">另外，中午睡個午覺是個不錯的選擇。</string>
+  <string name="sleep_15">另外，這時間睡晚上容易失眠喔。</string>
+  <string name="sleep_bug_2">另外，被你抓到漏洞囉囉!!!!</string>
+  <string name="back_keyDown">
+        手機返回鍵無法使用
+        \n請使用左上角離開鈕
+    </string>
+  <string name="double_click_exit">再次點擊退出</string>
+  <string name="example_ad">插入範例</string>
+  <string name="get_permission">權限已取得</string>
+
+  <string-array name="advance">
+    <item>個人資訊</item>
+    <item>刪除所有紀錄</item>
+    <item>語言</item>
+    <item>插入範例</item>
+    <item>意見回饋</item>
+  </string-array>
+
+  <string-array name="instructions_main">
+    <!--<item>Welcome</item>-->
+    <item>介紹</item>
+    <item>關於第二型糖尿病</item>
+    <item>關於睡眠 &amp; 第二型糖尿病</item>
+    <item>關於亮度 &amp; 第二型糖尿病</item>
+    <item>常見問題</item>
+  </string-array>
+
+  <!--<string-array name="welcome">
+      <item>SnoreDiaby</item>
+      <item>Place</item>
+      <item>Playback</item>
+      <item>Intensity</item>
+  </string-array>
+
+  <string-array name="snorediaby_cont">
+      <item>
+          Welcome to SnoreDiaby: the snore recording and sleep tracking app
+      </item>
+  </string-array>
+  <string-array name="place_cont">
+      <item>
+          Place your device face down on a table next to your bed with the charger connected.
+      </item>
+  </string-array>
+  <string-array name="playback_cont">
+      <item>
+          SnoreDiaby shows you when and how loudly you snored and lets you playback audio.
+      </item>
+  </string-array>
+  <string-array name="intensity_cont">
+      <item>
+          You can test snoring remedies and lifestyle changes to try to reduce your Snore Snore (snoring intensity)
+      </item>
+  </string-array>-->
+
+  <string-array name="instructions">
+    <item>SnoreDiaby</item>
+    <item>手機放置</item>
+    <item>偵測結果</item>
+    <item>重要聲明</item>
+  </string-array>
+
+  <string-array name="introduction_cont">
+        <item>
+            你笨喔SnoreDiaby is an app that records, measures and tracks your snoring.
+            It helps thousands of people just like you to gain insights into their snoring.
+            \n\nYou can share SnoreDiaby&#8217;s reports with your doctor or dentist,
+            or experiment with snoring remedies and lifestyle changes and track their impact over time.
+        </item>
+  </string-array>
+  <string-array name="placement_cont">
+        <item>
+            你笨喔It is recommended placing the device next to your bed with the microphone facing towards you.
+            Keep the charger connected if possible to ensure full night monitoring and fully charged device
+            the next day.\n\nPlacing the device face down will dim the screen and reduce battery usage.
+            \n\nNote: SnoreDiaby is sensitive to ambient noise and works best in quiet environment.
+        </item>
+  </string-array>
+  <string-array name="results_cont">
+        <item>
+            你笨喔After each night you&#8217;ll receive a report showing you when and how loudly you snored with
+            a selection of audio samples.\n\nYou&#8217;ll also get a Snore Score for the night, which is a
+            measure of snoring intensity. If you experiment with snoring remedies or track factors you can
+            see how they impact your snoring by the change in your Snore Score.\n\nDon&#8217;t worry too much
+            about disk usage, one night of samples only contents 2-4 MB at the default setting.
+            You can also delete unwanted sound files and optionally activate full-night recording if you
+            want to hear everything.
+        </item>
+  </string-array>
+  <string-array name="important_disclaimer_cont">
+        <item>
+            你笨喔SnoreDiaby is not a replacement for a professional sleep study and diagnosis. Snoring can be
+            symptomatic of serious sleep disorders (see the section on obstructive sleep apnea below) and you
+            should seek immediate medical attention if you are concerned by your symptoms.
+        </item>
+  </string-array>
+
+  <string-array name="about_snoring">
+    <item>什麼是打呼?</item>
+    <item>打呼的危險因子</item>
+    <item>睡眠呼吸中止(OSA)</item>
+    <item>治療打呼</item>
+  </string-array>
+
+  <string-array name="what_cont">
+        <item>
+            摘自
+
+            \n\n在入睡後，由於呼吸道肌肉張力降低，使得呼吸道變得較狹宰，如果再加上有鼻腔、鼻咽、口咽或咽喉結構上狹窄的情形，將會造成呼吸氣流的進出遇到相當的阻力，
+            而產生打呼或呼吸暫停的現象。
+
+            \n\n打呼的症狀乃是呼吸產生的氣流遇到阻力，震動咽部組織產生了聲音，有些人打呼的聲音可高達80分貝，如果只有打呼而沒有呼吸暫停或缺氧的現象產生，
+            則稱為原發性打呼症。打呼的情況會隨著睡眠期加深而愈顯得嚴重，而到快速動眼時期反而減輕。然而打呼往往是產生呼吸暫停症候群的先兆或根本是呼吸中止症候群的一個症狀。
+            據統計，一般成年人約有20％的人會打呼，中老年人 (41到65歲) 的男性大約有60％，女性大約有40％的人有習慣性打呼的情況。根據文獻報告，打呼的人容易罹患高血壓、
+            心臟病、腦血管等疾病。
+        </item>
+  </string-array>
+  <string-array name="risk_cont">
+        <item>
+            究竟怎樣的人比較會打呼呢？根據研究統計，下列的人比較容易有打呼的情況發生。
+
+            \n\n上呼吸道解剖結構上異常，造成上呼吸道呼吸氣流的阻力增加，例如扁桃腺過大、鼻中膈彎曲、先天或後天的顏面異常、舌頭過大等均易造成打呼的現象。
+            \n\n上呼吸道神經肌肉功能上的異常，支配氣管擴張肌的神經或肌肉本身無法執行正常的功能，常造成呼吸氣道的狹窄，而有打呼的情形。再來是睡覺的姿勢亦會影響，當人仰臥的時候，會導致舌頭向後掉及腹部往胸部推擠，也容易加重打呼的症狀。另外睡眠不足時，會因肌肉張力減少及延緩咽部擴張肌的收縮，而誘發或加重打呼的症狀。
+            \n\n性別的不同，打呼及阻塞型呼吸暫停症候群，好發於男性。女性賀爾蒙即黃體激素（Progesterone）被認為扮演一個重要的角色，因為黃體激素（Progesterone）被認為扮演一個重要的角色，因為黃體激素是一個有效的呼吸刺激物，並且可增加上呼吸道的肌肉張力。
+            \n\n賀爾蒙的影響，某些內分泌的疾病像甲狀腺低下症，會因黏膜水腫引發呼吸道結構上的變化和改變呼吸道肌肉收縮力，造成上呼吸道的狹窄而造成打呼或阻塞型呼吸暫停的現象。另外肢端肥大症（Acromegaly）常會伴隨著大舌頭、咽部黏膜肥厚及顏面骨質的變化，也會導致打呼或阻塞型呼吸暫停症候群。
+            \n\n藥物的影響，好幾種藥物會引發或加重打呼的症狀。例如酒精，鎮靜安眠的藥物等。
+            \n\n抽煙和肥胖也會增加打呼或阻塞型呼吸暫停症候群的機率。
+            \n\n遺傳的因素，在打呼及阻塞型呼吸暫停症候群中，也扮演著一個重要的角色，
+            \n\n年齡的影響，中老年人（40歲以後）打呼及呼吸暫停症候群的盛行率，遠比年輕人要大得多。
+        </item>
+  </string-array>
+  <string-array name="obstructive_cont">
+        <item>
+            你笨喔Obstructive sleep apnea (OSA) is a condition where the walls of the throat relax and narrow during sleep, interrupting normal breathing.
+            \n\nBreathing is totally or partially interrupted for periods of 10 seconds or more, typically followed by a choking or gasping sound.
+            \n\nOSA has a high prevalence and is frequently undiagnosed.
+            \n\nSymptoms of OSA include:
+            \n\n&#183; Loud snoring
+            \n&#183; Noisy and laboured breathing
+            \n&#183; Repeated short periods where breathing is interrupted
+            \n&#183; Not feeling refreshed after waking up
+            \n&#183; Feeling very sleepy during the day
+            \n&#183; Poor memory and concentration
+            \n&#183; Night sweats
+            \n&#183; Frequently waking up during the night to urinate
+            \n&#183; Headaches, particularly in the morning
+            \n&#183; Irritability and mood swings
+            \n&#183; Depression
+            \n&#183; Loss of libido
+            \n\nObstructive sleep apnea can have very serious consequences if left untreated.
+            \n\nIf you are concerned by your symptoms you should make a full night recording of your snoring with SnoreLab and speak to your doctor.
+        </item>
+  </string-array>
+  <string-array name="remedies_cont">
+        <item>
+            你笨喔As there are so many possible causes of snoring there is no one snoring remedy that works for everyone. You may need to try a few before you discover one that works for you.
+            \n\nThe most successful remedies amongst SnoreLab users include:
+            \n\nCPAP: CPAP is the outstanding treatment option for people with obstructive sleep apnea. The user wears a mask connected to a machine that creates positive airway pressure to prevent airway collapse. Take your SnoreLab recordings to your doctor to learn more. (Full night recording is recommended)
+            \n\nMouthpieces: anti-snoring dental appliances typically work by advancing the lower jaw by a few millimeters to reduce airway blockage. Cheap mouthpieces available online can be very effective but for superior comfort you may choose to invest in a custom fitted mouthpiece, which are supplied by dentists. Take your SnoreLab recordings to your dentist to learn more. (Full night recording is recommended)
+            \n\nTheravent: a special plaster that covers your nostrils to create positive pressure in your airways. Theravent works like a milder form of CPAP using the power of your own breathing rather than a machine.
+            \n\nAir purifiers: if your snoring sounds nasal, you may well benefit from an air purifier to remove dust and allergens from the air.
+            \n\nNasal products: if you snore more when your nose is blocked, you can try products that reduce nasal congestion such as neti pot, nasal strips or a nasal dilator.
+            \n\nSide sleeping: side sleeping can be effective when snoring is triggered by compression of the throat. Putting a pillow between your legs can make side sleeping more comfortable.
+            \n\nWeight loss: being overweight is one of the most common causes of snoring. You can use SnoreLab to track your weight over time to compare against your snoring.
+            \n\nLifestyle changes: lifestyle factors such as drinking alcohol can have a major impact your snoring. SnoreLab is designed to measure their impact, which may encourage you to make changes.
+        </item>
+  </string-array>
+
+  <string-array name="about_diabetes">
+    <item>什麼是第二型糖尿病?</item>
+    <item>睡眠 &amp; 第二型糖尿病</item>
+    <item>如何改善?</item>
+  </string-array>
+
+  <string-array name="what_t2d">
+        <item>
+            摘自 Mathers &amp; Loncar (2006), Federation (2009)
+            \n\n第2型糖尿病T2D是最常見的糖尿病（與1型糖尿病相比），糖尿病最有名的症狀就是三多。吃多、喝多、尿多。
+            研究表明，十分之一的20歲以上的成年人患有2型糖尿病。但卻有四分之一的人可能不知道自己有第二型糖尿病，
+            導致失去提早預防糖尿病發生的機率！
+            \n\n第2型糖尿病是一種身體不能產生足夠胰島素（鑰匙）或不能正確使用胰島素（胰島素抗阻）的疾病。因此，
+            血液中含有過多的糖，細胞(胰島素受器：鎖）無法吸收。
+            \n\n胰島素是胰腺產生的重要激素。其主要職責是幫助細胞吸收血糖（葡萄糖S）以獲得能量。當糖分太多，
+            細胞被充滿時，這種糖就會轉化為糖原，當有足夠的糖分儲存起來時，就會變成脂肪。當存在以下某種組合時，
+            體內細胞可能對胰島素產生“抵抗性”：
+            \n\n&#183; 肥胖/體重過重
+            \n&#183; 缺乏運動/久坐的生活方式
+            \n&#183; 第2型糖尿病的遺傳
+            \n\n糖本身不會導致糖尿病。過度食用糖以及其他遺傳或醫學因素可能會導致肥胖，進而導致糖尿病。
+        </item>
+  </string-array>
+  <string-array name="sleep_t2d">
+    <item>你笨喔睡眠與糖尿病的關係</item>
+  </string-array>
+  <string-array name="advice_t2d">
+    <item>你笨喔如何改善</item>
+  </string-array>
+
+  <string-array name="faqs">
+    <item>設備放置</item>
+    <item>容量使用</item>
+    <!--<item>Exporting Sound Files</item>-->
+    <item>當有兩名打呼者時</item>
+    <item>關於SnoreDiaby</item>
+  </string-array>
+
+  <string-array name="device_cont">
+        <item>
+            SnoreDiaby對設備的放置位置較為敏感，設備接近打鼾者時趨於獲得更響亮的錄音。我們建議將設備置於枕頭附近，麥克風對著打鼾者。
+            \n\n另外，請把手機螢幕面向天花板。這樣在手機的感應器才能偵測空間內是否有亮光，這樣才能準確分析您的睡眠品質。
+            \n\n雖然我們建議你將設備連接至充電器，但如果設備電量充足，則這就不是絕對必要的。
+            \n\nSnoreDiaby即使在開始偵測之後，只要不按下關機鍵，螢幕是不會自動熄滅的，以防止程式在不同手機會被系統自行關閉。
+            雖然研發人員成功在數台手機實驗關閉螢幕後也能讓偵測長時間運行。但每台手機系統不同，請使用者嘗試個幾次，謝謝您。
+        </item>
+  </string-array>
+  <string-array name="disk_cont">
+        <item>
+            SnoreDiaby一晚上會使用不到1MB，因為其只有採用文字和數字資料進行分析。如果你開啟了整晚記錄。
+            \n\n你可以使用兩種方法來刪除舊的或不需要的紀錄：
+            \n\n個別刪除：在睡眠紀錄頁面，長按紀錄中的日期，系統會自動彈出決定是否刪除個別資料的對話框。
+            \n\n全部刪除：在進階選項的頁面，可以點選刪除所有紀錄這個選項，系統同樣也會跳出是否刪除全部資料的對話框。
+        </item>
+  </string-array>
+  <string-array name="exporting_cont">
+        <item>
+            你笨喔If you would like to email audio files you can use the &#8217;share&#8217; button in the top right of
+            the Snore Report. To manually select audio files press the &#8217;paperclip&#8217; button when playing a sample.
+        </item>
+  </string-array>
+  <string-array name="snorers_cont">
+        <item>
+            如果同時存在多名打呼的人，SnoreDiaby可能無法自動區分多個人的鼾聲。
+            \n\n如果你想看看誰是最糟糕打呼的人，建議您可以多次使用SnoreDiaby，每次僅有一個人在房間裡的話，
+            然後在紀錄中使用日記功能進行備註。.
+        </item>
+  </string-array>
+  <string-array name="about_cont">
+        <item>
+            SnoreDiaby是由一位英國布里斯托大學的台灣研究生為了研究呼籲社會大眾開始重視睡眠與第二型糖尿病的交互關係而開發的App。
+            \n\n如果你喜歡或受益於SnoreDiaby，歡迎您與家人或朋友交流分享SnoreDiaby。
+            \n\n最後祝您和SnoreDiaby相處愉快！
+            \n\nwl17865@my.bristol.ac.uk
+        </item>
+  </string-array>
+
+  <string-array name="about_light">
+    <item>什麼是亮度?</item>
+    <item>亮度 &amp; 第二型糖尿病</item>
+  </string-array>
+
+  <string-array name="light_cont">
+        <item>
+            如果同時存在多名打呼的人，SnoreDiaby可能無法自動區分多個人的鼾聲。
+        </item>
+  </string-array>
+  <string-array name="lightT2D_cont">
+        <item>
+            SnoreDiaby是由一位英國布里斯托大學的台灣研究生為了研究呼籲社會大眾開始重視睡眠與第二型糖尿病的交互關係而開發的App。
+        </item>
+  </string-array>
+
+  <string-array name="null_cont">
+    <item>Null</item>
+  </string-array>
+
+
+  <string-array name="items_array_expandable_level_one">
+    <item>Level 1.1</item>
+    <item>Level 1.2</item>
+    <item>Level 1.3</item>
+    <item>Level 1.4</item>
+    <item>Level 1.5</item>
+    <item>Level 1.6</item>
+  </string-array>
+  <string-array name="items_array_expandable_level_one_one_child">
+    <item>Level 1.1.1</item>
+    <item>Level 1.1.2</item>
+    <item>Level 1.1.3</item>
+    <item>Level 1.1.4</item>
+    <item>Level 1.1.5</item>
+    <item>Level 1.1.6</item>
+    <item>Level 1.1.7</item>
+    <item>Level 1.1.8</item>
+  </string-array>
+  <string-array name="items_array_expandable_level_one_two_child">
+    <item>Level 1.2.1</item>
+    <item>Level 1.2.2</item>
+    <item>Level 1.2.3</item>
+  </string-array>
+  <string-array name="items_array_expandable_level_two">
+    <item>Second Level 01</item>
+    <item>Second Level 02</item>
+    <item>Second Level 03</item>
+    <item>Second Level 04</item>
+    <item>Second Level 05</item>
+    <item>Second Level 06</item>
+    <item>Second Level 07</item>
+  </string-array>
+  <string-array name="items_array_expandable_level_three">
+    <item>Third Level 01</item>
+    <item>Third Level 02</item>
+    <item>Third Level 03</item>
+    <item>Third Level 04</item>
+    <item>Third Level 05</item>
+  </string-array>
+</resources>

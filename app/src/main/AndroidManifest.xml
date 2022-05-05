@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.calculate.CalculateActivity" />
+        <activity android:name=".activities.personal.PersonalActivity" />
+        <activity android:name=".activities.email.EmailActivity" />
+        <activity android:name=".activities.language.LanguageActivity" />
+        <activity android:name=".activities.data.DataActivity" />
     </application>
 
 </manifest>

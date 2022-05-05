@@ -13,18 +13,16 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-import java.text.ParseException;
 import com.bristol.snorediaby.R;
-import wilson.com.project_snorediaby.activities.EmailActivity;
-import wilson.com.project_snorediaby.activities.LanguageActivity;
-import wilson.com.project_snorediaby.activities.PersonalActivity;
-import wilson.com.project_snorediaby.objects.Example;
-import wilson.com.project_snorediaby.objects.Example2;
-import wilson.com.project_snorediaby.objects.Example3;
-import wilson.com.project_snorediaby.objects.Example4;
-import wilson.com.project_snorediaby.sqLiteOpenHelper.myDB;
-
-//import android.support.v4.app.Fragment;
+import com.bristol.snorediaby.activities.email.EmailActivity;
+import com.bristol.snorediaby.activities.language.LanguageActivity;
+import com.bristol.snorediaby.activities.personal.PersonalActivity;
+import com.bristol.snorediaby.domain.Example;
+import com.bristol.snorediaby.domain.Example2;
+import com.bristol.snorediaby.domain.Example3;
+import com.bristol.snorediaby.domain.Example4;
+import com.bristol.snorediaby.sqllite.CustomSqlLite;
+import java.text.ParseException;
 
 public class AdvanceFragment extends Fragment {
 
@@ -58,17 +56,17 @@ public class AdvanceFragment extends Fragment {
                         break;
                     case 1:
                         new AlertDialog.Builder(context)
-                                .setTitle(R.string.warning)
-                                .setMessage(R.string.delete_rec)
-                                .setPositiveButton(R.string.yes_, (dialog, which) -> {
-                                    myDB dbHelp = new myDB(getActivity());
-                                    final SQLiteDatabase db = dbHelp.getWritableDatabase();
-                                    dbHelp.onUpgrade(db, 1, 2);
-                                    Toast.makeText(context, R.string.data_gone, Toast.LENGTH_SHORT).show();
-                                })
-                                .setNegativeButton(R.string.no_, (dialog, which) -> {
-                                    //Do nothing
-                                }).show();
+                            .setTitle(R.string.warning)
+                            .setMessage(R.string.delete_rec)
+                            .setPositiveButton(R.string.yes_, (dialog, which) -> {
+                                CustomSqlLite dbHelp = new CustomSqlLite(getActivity());
+                                final SQLiteDatabase db = dbHelp.getWritableDatabase();
+                                dbHelp.onUpgrade(db, 1, 2);
+                                Toast.makeText(context, R.string.data_gone, Toast.LENGTH_SHORT).show();
+                            })
+                            .setNegativeButton(R.string.no_, (dialog, which) -> {
+                                //Do nothing
+                            }).show();
                         break;
                     case 2:
                         intent = new Intent(getActivity(), LanguageActivity.class);

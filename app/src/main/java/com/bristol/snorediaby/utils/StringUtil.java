@@ -1,6 +1,6 @@
 package com.bristol.snorediaby.utils;
 
-import com.ta.utdid2.android.utils.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class StringUtil extends StringUtils {
 

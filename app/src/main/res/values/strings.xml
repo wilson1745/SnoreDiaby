@@ -1,3 +1,547 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SnoreDiaby</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="_00_00" translatable="false">00:00</string>
+    <string name="_00">00</string>
+    <string name="_0">0</string>
+    <string name="maohao">:</string>
+    <string name="dot">…</string>
+
+    <string name="light">Light</string>
+    <string name="sound">Sound</string>
+    <string name="sleep_on">Sleep ON</string>
+    <string name="sleep_off">Sleep OFF</string>
+    <string name="start_sleep">Start Sleep</string>
+    <string name="wake_me_up_at">Wake me up at&#160;:&#160;</string>
+    <string name="snore">Snore</string>
+    <string name="_10">Light recording frequency (sec(s)/th)&#160;&#160;&#160;Default 30 secs
+        (s)</string>
+    <string name="_60_db">Fill in the decibel&#160;&#160;&#160;Default 50 (dB)</string>
+    <string name="light_alert_default_5_lx">Light alert&#160;&#160;&#160;Default 5 (lx)</string>
+    <string name="lx">(lx)</string>
+    <string name="s">(s)</string>
+    <string name="db">(dB)</string>
+    <string name="light_display">Light Display</string>
+    <string name="normal">Normal</string>
+    <string name="random">Random</string>
+    <string name="sleep_mode">Sleep Mode</string>
+    <string name="night">Night</string>
+    <string name="nap">Nap</string>
+    <string name="snoring_vibration">Snore Tremor</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="move">Move</string>
+    <string name="th">(th)</string>
+    <string name="sec_s">Sec(s)</string>
+    <string name="list_fragment">
+        There are two ways to operate your records&#160;:&#160;\n
+        &#160;1. Click on the date to view individual record.\n
+        &#160;2. Long press the date to delete individual record.</string>
+    <string name="date">Date</string>
+    <string name="snore_per">Snore %</string>
+    <string name="light_per">Light %</string>
+    <string name="confirm">confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="english">English</string>
+    <string name="traditional_chinese">Traditional Chinese</string>
+    <string name="simplified_chinese">Simplified Chinese</string>
+    <string name="warning_the_system_will">
+        Warning!\nSystem will shut down if you change language during the sleep tracking!\nStill
+        want to switch the language?
+    </string>
+    <string name="send_us_a_feedback">Send us a feedback</string>
+    <string name="subject">Subject</string>
+    <string name="message">Message</string>
+    <string name="send">Send</string>
+    <string name="clear">Clear</string>
+    <string name="evaluation">Evaluation</string>
+    <string name="bmi">BMI</string>
+    <string name="revise">revise</string>
+    <string name="_null">Null</string>
+    <string name="age">Age</string>
+    <string name="sex">Sex</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="textview">TextView</string>
+    <string name="personal_info">Personal Information</string>
+    <string name="warning">Warning!</string>
+    <string name="delete_rec">Do you want to delete all records?</string>
+    <string name="delete_individual">Delete this record?</string>
+    <string name="data_gone">All data have gone</string>
+    <string name="yes_">Yes</string>
+    <string name="no_">No</string>
+    <string name="language_">Language</string>
+    <string name="enter_subject">You must enter the subject</string>
+    <string name="enter_messeage">You must enter a message</string>
+    <string name="example_added">Data added</string>
+    <string name="feedback">Feedback</string>
+    <string name="click_here_tracking">Click here to start tracking</string>
+    <string name="click_the_alarm">Click the time to set alarm</string>
+    <string name="count_start">Start Counting&#160;</string>
+    <string name="count_finish">Your Sleep Length&#160;</string>
+    <string name="osa">OSA</string>
+    <string name="stop_snore">Stop Snore</string>
+    <string name="sleep_ana">Sleep Analysis Score:</string>
+    <string name="sleep_sug">Sleep Advice:</string>
+    <string name="snore_permao">Snore %:</string>
+    <string name="light_permao">Light %:</string>
+    <string name="hours_of_sleep">Hours of sleep&#160;:&#160;</string>
+    <string name="time_to_bed">Time to bed&#160;:&#160;</string>
+    <string name="suggestion_mao">Suggestion:</string>
+    <string name="sug_breath_times">(The number of breaths in an hour is about 960 times)</string>
+    <string name="light_trend">Light Trend:</string>
+    <string name="snoring_interval">Snoring Interval:</string>
+    <string name="hr_s">hr(s)</string>
+    <string name="not_calculated_after_5_am">(Not calculated after 5 am)</string>
+    <string name="diary">Diary:</string>
+    <string name="write_your_diary_here">write your diary here…</string>
+    <string name="add_diary">Add Diary</string>
+    <string name="save">Save</string>
+    <string name="snoring_mao">Snore&#160;:&#160;</string>
+    <string name="start_track">Start Tracking</string>
+    <string name="sleep_rec">Sleep Records</string>
+    <string name="advance_opt">Advance Options</string>
+    <string name="instruc">Instructions</string>
+    <string name="osa_times">OSA&#160;:&#160;</string>
+    <string name="dia_null">Null</string>
+    <string name="bar_serious">Serious</string>
+    <string name="bar_medium">OSA</string>
+    <string name="bar_slight">Maybe OSA</string>
+    <string name="bar_thr">Times (/Hour)</string>
+    <string name="obstructive_sleep_apnea">Obstructive Sleep Apnea:</string>
+    <string name="lux">Lux</string>
+    <string name="limit_lux">Limit (5 lux)</string>
+    <string name="file_fail">Failed to create file</string>
+    <string name="no_microphone">No microphone permissions</string>
+    <string name="snore_none">
+        None: The number of snoring per hour is less than 10% of the maximum number of possible beeps, and the number of
+        snoring per hour is less than 96 times.
+    </string>
+    <!--    <string name="snore_slight" tools:ignore="StringFormatInvalid">-->
+    <string formatted="false" name="snore_slight">
+        Slight: The number of snoring per hour is between 10% to 20% of the maximum number of possible beeps, and the snoring
+        per hour is between 96 and 288 times. It may be due to excessive fatigue. After asleep, you will unconsciously use
+        more oxygen in your mouth to eliminate fatigue. This can cause soft tissue such as soft palate to exacerbate vibration.
+    </string>
+    <!--    <string name="snore_medium" tools:ignore="StringFormatInvalid">-->
+    <string formatted="false" name="snore_medium">
+        Medium: The number of snoring per hour is between 20% to 40% of the maximum possible number, and the number of snoring
+        per hour is between 288 and 480 times. Please observe for a few more days to see if you will have sleepiness during
+        the day and lack of concentration.
+    </string>
+    <string name="snore_serious">
+        Serious: The number of snoring per hour is higher than 40% of the maximum number of possible beeps, and the snoring
+        is more than 480 times per hour.This ratio is a bit too much, so the body is prone to insulin resistance.
+    </string>
+    <string name="osa_unlike">Unlike: Within 5 times per hour and 30 times throughout the night.</string>
+    <string name="osa_maybe">Maybe: 5 to 10 times per hour or 30 to 50 times per night.</string>
+    <string name="osa_yes">Yes: More than 10 times per hour and more than 50 times all night.</string>
+    <string name="osa_bug">You have got a bug!!!</string>
+
+    <string name="lux_yes">
+        Exposing to light when sleeping can inhibit the secretion of sleep hormones (melatonin)
+        and make the body difficult to keep fit.
+    </string>
+    <string name="lux_no">
+        The system did not detect any light at night.Your sleeping environment is good.
+    </string>
+    <string name="lux_up">
+        In addition, did you get up too many times at night? This might directly affect your sleep quality.
+    </string>
+    <string name="example_sug">
+        You get up at the appointed time and hope you keep it. Also, a short sleep can cause a decrease in insulin
+        sensitivity, which can disrupt your ability to regulate blood sugar metabolism. In addition, if you sleep too
+        late, you will miss the sleep period.
+    </string>
+    <string name="underweight">Underweight</string>
+    <string name="normal_weight">Normal weight</string>
+    <string name="overweight">Overweight</string>
+    <string name="obesity">Obesity</string>
+    <string name="permission_not">No permission obtained</string>
+    <string name="sreen_unlock">Screen unlock</string>
+    <string name="sleep_nine">
+        Your sleep duration is too long! Is it possible that you had a poor sleep quality
+        last night which caused you sleep too long?
+    </string>
+    <string name="sleep_good">Your sleeping time is very healthy!</string>
+    <string name="sleep_short">
+        Your sleep is too short, which can lead to decreased insulin sensitivity, which can
+        disturb the regulation of blood sugar metabolism and make it more hard to prevent Type 2
+        Diabetes.
+    </string>
+    <string name="sleep_bug_first">You caught the loophole!!!!</string>
+    <string name="sleep_21">In addition, you are very healthy and have gone to bed so early.</string>
+    <string name="slee_23">In addition, if you sleep too late, you will miss the shallow sleep period.</string>
+    <string name="sleep_0">In addition, going to bed after 12am will miss the exuberant period of the liver to eliminate toxins.</string>
+    <string name="sleep_3">In addition, this period of time is the most vulnerable moment of the human body.
+        Do not go to bed until this time.</string>
+    <string name="sleep_6">In addition, you have been reversed day and night, please adjust your schedule!</string>
+    <string name="sleep_11">In addition, taking a nap at noon is a good choice.</string>
+    <string name="sleep_15">In addition, you might lose sleep if you sleep at this time.</string>
+    <string name="sleep_bug_2">In addition, you caught a bug!!!!</string>
+    <string name="back_keyDown">
+        The back button is unavailable.
+        \nPlease use the icon in the upper left.
+    </string>
+    <string name="double_click_exit">Click again to exit</string>
+    <string name="example_ad">Example</string>
+    <string name="get_permission">Permissions granted</string>
+
+    <string-array name="advance">
+        <item>Personal Information</item>
+        <item>Delete All Records</item>
+        <item>Language</item>
+        <item>Example</item>
+        <item>Feedback</item>
+    </string-array>
+
+    <string-array name="instructions_main">
+        <!--<item>Welcome</item>-->
+        <item>Instructions</item>
+        <item>About Type 2 Diabetes</item>
+        <item>About Sleep &amp; Type 2 Diabetes</item>
+        <item>About Light &amp; Type 2 Diabetes</item>
+        <item>FAQs</item>
+    </string-array>
+
+    <!--<string-array name="welcome">
+        <item>SnoreDiaby</item>
+        <item>Place</item>
+        <item>Playback</item>
+        <item>Intensity</item>
+    </string-array>
+
+    <string-array name="snorediaby_cont">
+        <item>
+            Welcome to SnoreDiaby: the snore recording and sleep tracking app
+        </item>
+    </string-array>
+    <string-array name="place_cont">
+        <item>
+            Place your device face down on a table next to your bed with the charger connected.
+        </item>
+    </string-array>
+    <string-array name="playback_cont">
+        <item>
+            SnoreDiaby shows you when and how loudly you snored and lets you playback audio.
+        </item>
+    </string-array>
+    <string-array name="intensity_cont">
+        <item>
+            You can test snoring remedies and lifestyle changes to try to reduce your Snore Snore (snoring intensity)
+        </item>
+    </string-array>-->
+
+    <string-array name="instructions">
+        <item>SnoreDiaby</item>
+        <item>Placement</item>
+        <item>Results</item>
+        <item>Important Disclaimer</item>
+    </string-array>
+
+    <string-array name="introduction_cont">
+        <item>
+            SnoreDiaby is an app that records, measures and tracks your snoring.
+            It helps thousands of people just like you to gain insights into their snoring.
+            \n\nYou can share SnoreDiaby&#8217;s reports with your doctor or dentist,
+            or experiment with snoring remedies and lifestyle changes and track their impact over time.
+        </item>
+    </string-array>
+    <string-array name="placement_cont">
+        <item>
+            It is recommended placing the device next to your bed with the microphone facing towards you.
+            Keep the charger connected if possible to ensure full night monitoring and fully charged device
+            the next day.\n\nPlacing the device face down will dim the screen and reduce battery usage.
+            \n\nNote: SnoreDiaby is sensitive to ambient noise and works best in quiet environment.
+        </item>
+    </string-array>
+    <string-array name="results_cont">
+        <item>
+            After each night you&#8217;ll receive a report showing you when and how loudly you snored with
+            a selection of audio samples.\n\nYou&#8217;ll also get a Snore Score for the night, which is a
+            measure of snoring intensity. If you experiment with snoring remedies or track factors you can
+            see how they impact your snoring by the change in your Snore Score.\n\nDon&#8217;t worry too much
+            about disk usage, one night of samples only contents 2-4 MB at the default setting.
+            You can also delete unwanted sound files and optionally activate full-night recording if you
+            want to hear everything.
+        </item>
+    </string-array>
+    <string-array name="important_disclaimer_cont">
+        <item>
+            SnoreDiaby is not a replacement for a professional sleep study and diagnosis. Snoring can be
+            symptomatic of serious sleep disorders (see the section on obstructive sleep apnea below) and you
+            should seek immediate medical attention if you are concerned by your symptoms.
+        </item>
+    </string-array>
+
+    <string-array name="about_snoring">
+        <item>What is Snoring?</item>
+        <item>Risk Factors</item>
+        <item>Obstructive Sleep Apnea</item>
+        <item>Snoring Remedies</item>
+    </string-array>
+
+    <string-array name="what_cont">
+        <item>
+            Snoring is noisy breathing whilst you sleep caused by the vibration of soft tissue in your head and neck.
+            \n\nThe exact sound you make will depend on the types of soft tissue that is vibrating. For example,
+            if the soft tissue at the back of your nose vibrates it is likely you will produce a pinched nasal sound.
+            If the tissues at the top of your mouth and the back of your throat vibrate, you will produce a louder, more
+            guttural, throaty sound. In most cases, snoring is caused by a combination of areas that are vibrating or blocked.
+            \n\nWhile you sleep your airways relax and narrows. This affects air pressure within your airways, which causes
+            the tissue to vibrate. This can also happen if your airways are partially blocked, for example if you have a cold.
+        </item>
+    </string-array>
+    <string-array name="risk_cont">
+        <item>
+            Some things that can increase your risk of habitual snoring include:
+            \n\nObesity: particularly if you have a large amount of fat around your neck.
+            \n\nAdvancing age: as you get older the muscles tend to weaken, making snoring louder and more prevalent.
+            \n\nGenetic factors: some people have a genetic predisposition for snoring due to the structure of their facial anatomy.
+            \n\nMouth breathing: drawing in air through your mouth can cause loud snoring as well as dry mouth and bad breath.
+            \n\nSeasonal factors: colds, hay fever and low humidity can all impact snoring.
+            \n\nAllergic rhinitis: a condition where the inside of your nose becomes swollen and inflamed due to an allergic reaction to substances such as dust or pollen.
+            \n\nNasal conditions: nasal polyps and deviated septum can have a major impact on snoring.
+            \n\nDrinking alcohol: alcohol relaxes your muscles when you sleep, which increase the narrowing of your airways.
+            \n\nSedatives and some types of antidepressants: in some people, these medications can have a similar effect to alcohol on the muscles.
+            \n\nSmoking: tobacco smoke can cause your airways to become inflamed, which increases the narrowing of the airways.
+        </item>
+    </string-array>
+    <string-array name="obstructive_cont">
+        <item>
+            Obstructive Sleep Apnea (OSA) is the pervasive sleep disorder in today’s society. Take the United States of America as an example,
+            USA has about 22 million people suffers from this kind of chronic disorder, while there are greater than 100 million people worldwide
+            are affected by this serious disease. According to American Sleep Apnea Association (ASAA), OSA make it as common as asthma
+            (around 20 millions) and Type 2 Diabetes (around 23.6 millions), and to a lesser extent, not counting people who have the disorder
+            but have not been diagnosed (Samy, 2016).
+
+            \n\nBreathing is totally or partially interrupted for periods of 10 seconds or more, typically followed by a choking or gasping sound.
+
+            \n\nOSA has a high prevalence and is frequently undiagnosed.
+
+            \n\nSymptoms of OSA include:
+            \n\n&#183; Loud snoring
+            \n&#183; Noisy and laboured breathing
+            \n&#183; Repeated short periods where breathing is interrupted
+            \n&#183; Not feeling refreshed after waking up
+            \n&#183; Feeling very sleepy during the day
+            \n&#183; Poor memory and concentration
+            \n&#183; Night sweats
+            \n&#183; Frequently waking up during the night to urinate
+            \n&#183; Headaches, particularly in the morning
+            \n&#183; Irritability and mood swings
+            \n&#183; Depression
+            \n&#183; Loss of libido
+
+            \n\nObstructive sleep apnea can have very serious consequences if left untreated.
+            \n\nIf you are concerned by your symptoms you should make a full night recording of your snoring with SnoreLab and speak to your doctor.
+        </item>
+    </string-array>
+    <string-array name="remedies_cont">
+        <item>
+            As there are so many possible causes of snoring there is no one snoring remedy that works for everyone. You may need to try a few before you discover one that works for you.
+            \n\nThe most successful remedies amongst SnoreLab users include:
+            \n\nCPAP: CPAP is the outstanding treatment option for people with obstructive sleep apnea. The user wears a mask connected to a machine that creates positive airway pressure to prevent airway collapse. Take your SnoreLab recordings to your doctor to learn more. (Full night recording is recommended)
+            \n\nMouthpieces: anti-snoring dental appliances typically work by advancing the lower jaw by a few millimeters to reduce airway blockage. Cheap mouthpieces available online can be very effective but for superior comfort you may choose to invest in a custom fitted mouthpiece, which are supplied by dentists. Take your SnoreLab recordings to your dentist to learn more. (Full night recording is recommended)
+            \n\nTheravent: a special plaster that covers your nostrils to create positive pressure in your airways. Theravent works like a milder form of CPAP using the power of your own breathing rather than a machine.
+            \n\nAir purifiers: if your snoring sounds nasal, you may well benefit from an air purifier to remove dust and allergens from the air.
+            \n\nNasal products: if you snore more when your nose is blocked, you can try products that reduce nasal congestion such as neti pot, nasal strips or a nasal dilator.
+            \n\nSide sleeping: side sleeping can be effective when snoring is triggered by compression of the throat. Putting a pillow between your legs can make side sleeping more comfortable.
+            \n\nWeight loss: being overweight is one of the most common causes of snoring. You can use SnoreLab to track your weight over time to compare against your snoring.
+            \n\nLifestyle changes: lifestyle factors such as drinking alcohol can have a major impact your snoring. SnoreLab is designed to measure their impact, which may encourage you to make changes.
+        </item>
+    </string-array>
+
+    <string-array name="about_diabetes">
+        <item>What is Type 2 Diabetes?</item>
+        <item>Sleep &amp; Type 2 Diabetes</item>
+        <item>How To Improve It?</item>
+    </string-array>
+
+    <string-array name="what_t2d">
+        <item>
+            According to the World Health Organization (WHO), diabetes has become a global chronic disease. Almost half of deaths due to hyperglycaemia
+            occur before age 70. WHO predicts that diabetes will be the seventh leading cause of death in 2030, especially for those who have Type
+            2 Diabetes (Mathers &amp; Loncar, 2006).
+
+            \n\nThe International Diabetes Federation had indicated that there are two types of diabetes, Type 1 Diabetes and Type 2 Diabetes. Type 1 Diabetes
+            cannot be prevented, it is like an autoimmune disorder in which conducts the body destroys its own insulin-producing cells. This usually occurs in
+            children or young people, but continues to affect adults in their whole life, and patients are requested to inject insulin to balance the body&#8217;s
+            need every day unremittingly (Federation, 2009).
+
+            \n\nWith the constant advancement of medicine and research, more and more researchers have changed their fields to explore the association
+            between sleep and diabetes. Although most citizens do not realize that sleep is important to prevent diabetes, instead they simply focus
+            on exercise and diet. Most researches pointed out two directions:
+
+            \n\n&#183; Poor sleep leads to Type 2 Diabetes.
+            \n&#183; Diabetes will certainly have terrible sleep quality, but patients are usually unaware.
+        </item>
+    </string-array>
+    <string-array name="sleep_t2d">
+        <item>
+            J.-Q. Li, Hong, Liang, Wang, and Xu (2011) investigated the correlation between sleep and Type 2 Diabetes (collect 3031 valid samples
+            within 3 years). The result showed that the average daily sleep time of a person was 7.2 hours. People will likely to have Type 2 Diabetes
+            with insufficient sleep (less 7hrs/day) or excessive sleep (>= 9hrs/day), and the proportion was 24.8% and 7.5%, respectively.
+            Compared with people who have sleep time of 7hrs/day perfectly, the risk of Type 2 Diabetes for people who have insufficient sleep or
+            excessive sleep is about twice as high.
+
+            \n\nLast but not least, snoring is definitely the most dangerous factor in OSA. It also leads to poor sleep quality, which will cause
+            excessive sleep; H.-B. Wu et al. (2017) made a large sample (approximately 60 thousands participants) finding connection between snoring
+            and Type 2 Diabetes within 4 years. H.-B. Wu et al. (2017) indicated that snoring or apnea can cause Upper Airway Obstruction which
+            leads the reduction of oxygen saturation. Therefore, their catecholamine and cortisol levels are increased that reinforce the resistance
+            to insulin (as known as Type 2 Diabetes). It shows that 70%-80% of snoring is due to obesity. And some factors such as tongue hypertrophy,
+            abnormal nose and cardiovascular disease. Obesity itself increases the likelihood of diabetes. In other words, obesity is the common cause
+            of snoring and diabetes.
+        </item>
+    </string-array>
+    <string-array name="advice_t2d">
+        <item>
+            To those who already have Type 2 Diabetes, M. Li et al. (2018) found out that diabetes sleep education can improve sleep quality,
+            improve blood sugar and blood pressure, and reduce insulin resistance through healthier sleep hygiene.
+
+            \n\nIn addition, Metes, Ohki, Cole, Haight, and Hoffstein (1991) checked whether sex and airway resistance (nasal and lung) affect
+            the loudness and intensity of snoring. The result showed that male and female have similar snoring. And obesity and nasal resistance
+            are crucial factors of snoring frequency. Therefore, taking measures to reduce weight and decrease nasal resistance may be helpful to
+            reduce snoring. Hence people can reduce snoring by implementing some activities:
+
+            \n\n&#183; Actively reduce weight.
+            \n&#183; Exercise for half an hour before going to bed is best.
+            \n&#183; Wear a micro-breathing machine while sleeping to prevent snoring and hypoxia.
+            \n&#183; Reduce high-sugar high-fat and high-heat food intake.
+            \n&#183; No alcohol, no smoking.
+            \n&#183; People with a family obese history can use drugs to lose weight, but they must be under the guidance of a doctor.
+        </item>
+    </string-array>
+
+    <string-array name="faqs">
+        <item>Device Positioning</item>
+        <item>Disk Usage</item>
+        <!--<item>Exporting Sound Files</item>-->
+        <item>Two Snorers in the Room</item>
+        <item>About SnoreDiaby</item>
+    </string-array>
+
+    <string-array name="device_cont">
+        <item>
+            SnoreDiaby is sensitive to device placement and will tend to give louder readings when the device
+            is closer to the snorer. We recommend placing the device on a nightstand next to the bed with the
+            microphone facing the snorer. If this is not possible the phone can be placed on the bed. If you
+            use the app to compare your snoring between nights you should always position the device in the
+            same position to give consistent readings.
+
+            \n\nAlthough we advise you to keep the device connected to the charger this is not strictly necessary
+            if the device is well charged.
+
+            \n\nSnoreDiaby can run successfully with the device locked but this may lead the recording being
+            terminated by interruptions. SnoreLab will automatically prevent the device from locking unless you
+            press the power button, close your iPad cover, or exit the app. On older iOS devices, the phone may
+            lock automatically to minimize other activity on the phone.
+        </item>
+    </string-array>
+    <string-array name="disk_cont">
+        <item>
+            In its default setting SnoreLab uses 2-4 MB a night. If you activate full night recording, one night
+            of samples typically uses 64-128 MB. The recordings are divided into short samples allowing you to
+            mark individual samples as favorites and delete the rest.
+
+            \n\nYou can delete old or unwanted recordings in several ways:
+
+            \n\nIndividual nights: to access the &#8217;delete audio&#8217; option press the &#8217;dots&#8217;
+            button on the Snore Report or the &#8217;bin&#8217; button on the calendar page. To prevent individual
+            samples from being deleted, mark them with a &#8217;star&#8217; when playing the sample.
+
+            \n\nBulk deletion: the Audio Archive function in the menu is designed to quickly free disk space by
+            deleting old audio recordings. You can specify the number of recordings that you&#8217;d like to be
+            retained for historic records (or none at all) and the rest will be deleted. Recordings marked with a
+            star will not be deleted.
+        </item>
+    </string-array>
+    <string-array name="exporting_cont">
+        <item>
+            If you would like to email audio files you can use the &#8217;share&#8217; button in the top right of
+            the Snore Report. To manually select audio files press the &#8217;paperclip&#8217; button when playing a sample.
+        </item>
+    </string-array>
+    <string-array name="snorers_cont">
+        <item>
+            SnoreDiaby cannot automatically distinguish one person&#8217;s snoring from another&#8217;s.
+
+            \n\nIf you want to see who is the worst snorer we suggest that you run the app a few
+            times with only one person in the room and make a note of this using a custom factor
+            within the Factors menu e.g. &#8217;Steve&#8217;.
+        </item>
+    </string-array>
+    <string-array name="about_cont">
+        <item>
+            SnoreDiaby was created by a husband after his wife complained about his snoring.
+
+            \n\nIf you enjoy or benefit from SnoreDiaby please do leave a review in the App Store
+            and talk about it amongst your family and friends.
+
+            \n\nWe wish you success in your journey!
+
+            \n\nwww.snorediaby.com
+        </item>
+    </string-array>
+
+    <string-array name="about_light">
+        <item>What is Light?</item>
+        <item>Light &amp; Type 2 Diabetes</item>
+    </string-array>
+    <string-array name="light_cont">
+        <item>
+            如果同時存在多名打呼的人，SnoreDiaby可能無法自動區分多個人的鼾聲。
+        </item>
+    </string-array>
+    <string-array name="lightT2D_cont">
+        <item>
+            SnoreDiaby是由一位英國布里斯托大學的台灣研究生為了研究呼籲社會大眾開始重視睡眠與第二型糖尿病的交互關係而開發的App。
+        </item>
+    </string-array>
+
+    <string-array name="null_cont">
+        <item>Null</item>
+    </string-array>
+
+
+    <string-array name="items_array_expandable_level_one">
+        <item>Level 1.1</item>
+        <item>Level 1.2</item>
+        <item>Level 1.3</item>
+        <item>Level 1.4</item>
+        <item>Level 1.5</item>
+        <item>Level 1.6</item>
+    </string-array>
+    <string-array name="items_array_expandable_level_one_one_child">
+        <item>Level 1.1.1</item>
+        <item>Level 1.1.2</item>
+        <item>Level 1.1.3</item>
+        <item>Level 1.1.4</item>
+        <item>Level 1.1.5</item>
+        <item>Level 1.1.6</item>
+        <item>Level 1.1.7</item>
+        <item>Level 1.1.8</item>
+    </string-array>
+    <string-array name="items_array_expandable_level_one_two_child">
+        <item>Level 1.2.1</item>
+        <item>Level 1.2.2</item>
+        <item>Level 1.2.3</item>
+    </string-array>
+    <string-array name="items_array_expandable_level_two">
+        <item>Second Level 01</item>
+        <item>Second Level 02</item>
+        <item>Second Level 03</item>
+        <item>Second Level 04</item>
+        <item>Second Level 05</item>
+        <item>Second Level 06</item>
+        <item>Second Level 07</item>
+    </string-array>
+    <string-array name="items_array_expandable_level_three">
+        <item>Third Level 01</item>
+        <item>Third Level 02</item>
+        <item>Third Level 03</item>
+        <item>Third Level 04</item>
+        <item>Third Level 05</item>
+    </string-array>
 </resources>
+
