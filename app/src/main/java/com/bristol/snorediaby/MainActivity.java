@@ -15,11 +15,11 @@ import android.util.DisplayMetrics;
 import android.widget.Toast;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
-import com.bristol.snorediaby.fragments.AlarmFragment;
-import com.bristol.snorediaby.fragments.ListFragment;
-import com.bristol.snorediaby.utils.exception.SnoreException;
-import com.bristol.snorediaby.view.advance.AdvanceFragment;
-import com.bristol.snorediaby.view.instruct.InstructFragment;
+import com.bristol.snorediaby.web.view.fragments.AlarmFragment;
+import com.bristol.snorediaby.web.view.fragments.ListFragment;
+import com.bristol.snorediaby.common.exceptions.SnoreException;
+import com.bristol.snorediaby.web.view.advance.AdvanceFragment;
+import com.bristol.snorediaby.web.view.instruct.InstructFragment;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -39,8 +39,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationB
     private AdvanceFragment advanceFragment;
 
     private InstructFragment instructFragment;
-
-    private static Boolean isQuit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

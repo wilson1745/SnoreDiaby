@@ -16,11 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.calculate.CalculateActivity" />
-        <activity android:name=".activities.personal.PersonalActivity" />
-        <activity android:name=".activities.email.EmailActivity" />
-        <activity android:name=".activities.language.LanguageActivity" />
-        <activity android:name=".activities.data.DataActivity" />
+        <activity android:name=".web.view.activities.calculate.CalculateActivity" />
+        <activity android:name=".web.view.activities.personal.PersonalActivity" />
+        <activity android:name=".web.view.activities.email.EmailActivity" />
+        <activity android:name=".web.view.activities.language.LanguageActivity" />
+        <activity android:name=".web.view.activities.data.DataActivity" />
+
+        <service android:name=".logic.services.AlarmService" />
     </application>
 
 </manifest>

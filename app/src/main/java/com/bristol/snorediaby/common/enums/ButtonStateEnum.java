@@ -12,6 +12,7 @@ public enum ButtonStateEnum {
     START("start"),
 
     STOP("stop"),
+
     ;
 
     private static final Map<String, ButtonStateEnum> LOOKUP =

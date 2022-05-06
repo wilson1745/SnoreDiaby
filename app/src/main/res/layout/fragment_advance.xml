@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_main41"
-    tools:context="com.bristol.snorediaby.view.advance.AdvanceFragment"
+    tools:context=".web.view.advance.AdvanceFragment"
     >
 
     <!-- TODO: Update blank fragment layout -->
