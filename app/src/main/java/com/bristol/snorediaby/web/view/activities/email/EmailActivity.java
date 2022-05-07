@@ -128,4 +128,9 @@ public class EmailActivity extends AppCompatActivity implements AbstractInterfac
         etSub.setText(null);
         etMsg.setText(null);
     }
+
+    @Override public void writeBean() {
+        // TODO
+    }
+
 }

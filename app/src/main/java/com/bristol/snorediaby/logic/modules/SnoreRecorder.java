@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
 import com.bristol.snorediaby.R;
+import com.bristol.snorediaby.common.exceptions.SnoreException;
 import com.bristol.snorediaby.repo.domain.SnoreStorage;
 import com.bristol.snorediaby.logic.snores.CustomMp3Recorder;
 import com.czt.mp3recorder.MP3Recorder;
@@ -58,11 +59,11 @@ public class SnoreRecorder {
         this.setValue = setValue;
         this.useVibra = useVibra;
 
-        mUIHandler = new Handler();
-        countStatus = new ArrayList<>();
-        countSnoring = new ArrayList<>();
-        integerList = new ArrayList<>();
-        snoreList = new ArrayList<>();
+        this.mUIHandler = new Handler();
+        this.countStatus = new ArrayList<>();
+        this.countSnoring = new ArrayList<>();
+        this.integerList = new ArrayList<>();
+        this.snoreList = new ArrayList<>();
     }
 
     //@SuppressLint("HandlerLeak")
@@ -170,11 +171,14 @@ public class SnoreRecorder {
         subscribe3 = Observable.interval(1, TimeUnit.SECONDS).subscribe(new Consumer<Long>() {
             @Override
             public void accept(Long aLong) {
-                if (!stillSnore) { //不打呼了
+                if (!stillSnore) {
+                    // 不打呼了
                     normalBreath++;
-                } else { //在規定時間內突然打呼
+                } else {
+                    // 在規定時間內突然打呼
                     if (normalBreath > 15 && normalBreath < 60 && isStartVibrate && valueDB > 30) {
-                        breathAlert++; //偵測到呼吸中止
+                        // 偵測到呼吸中止
+                        breathAlert++;
                     }
                     normalBreath = 0;
                 }
@@ -197,7 +201,7 @@ public class SnoreRecorder {
                 }
             });
         } catch (IOException e) {
-            e.printStackTrace();
+            SnoreException.getErrorException(TAG, e);
             Toast.makeText(context, R.string.permission_not, Toast.LENGTH_SHORT).show();
         }
     }

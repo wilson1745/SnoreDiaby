@@ -46,7 +46,7 @@ public class LuxRecorder {
     }
 
     public void checkLuxAlert() {
-        float check = getCurrentLux();
+        float check = this.getCurrentLux();
 
         //目前只適合做為夜間睡眠使用
         if (!sleepMode) {
@@ -92,6 +92,7 @@ public class LuxRecorder {
             sensorManager.registerListener(sensorListener, light, SensorManager.SENSOR_DELAY_FASTEST);
         } else {
             // TODO FIXME
+            String str = "TODO";
             //throw  new Exception("");
         }
     }

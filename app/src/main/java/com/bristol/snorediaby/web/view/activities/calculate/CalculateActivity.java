@@ -13,98 +13,110 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.bristol.snorediaby.R;
-import com.bristol.snorediaby.web.view.activities.personal.PersonalActivity;
 import com.bristol.snorediaby.common.constants.SdConstants;
 import com.bristol.snorediaby.common.enums.PersonEnum;
+import com.bristol.snorediaby.common.exceptions.SnoreException;
 import com.bristol.snorediaby.repo.sqllite.CustomSqlLite;
 import com.bristol.snorediaby.web.view.AbstractInterface;
+import com.bristol.snorediaby.web.view.activities.calculate.mvp.CalculateModel;
+import com.bristol.snorediaby.web.view.activities.personal.PersonalActivity;
 import java.util.Objects;
 
+/**
+ * Function: CalculateActivity
+ * Description:
+ * Author: wilso
+ * Date: 2022/5/6
+ * MaintenancePersonnel: wilso
+ */
 public class CalculateActivity extends AppCompatActivity implements AbstractInterface {
 
     private final String TAG = this.getClass().getSimpleName();
 
-    private EditText per_age, per_sex, per_height, per_weight;
-    private Button btn_cancel, btn_save;
-    private int age;
-    private String sex, evaluation;
-    private double height, weight, bmi;
+    private EditText perAge;
+    private EditText perSex;
+    private EditText perHeight;
+    private EditText perWeight;
+
+    private Button cancelBtn;
+    private Button saveBtn;
+
+    private CalculateModel model;
+
+    private CalculatePresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "Start CalculateAvtivity onCreate");
         try {
-            Log.i(TAG, "Start CalculateAvtivity onCreate");
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_calculate);
+            this.setContentView(R.layout.activity_calculate);
 
-            findView();
+            model = new CalculateModel();
+            presenter = new CalculatePresenter(this, model);
 
-            btn_cancel.setOnClickListener((View v) -> {
-                Intent intent = new Intent(CalculateActivity.this, PersonalActivity.class);
-                startActivity(intent);
-                finish();
-            });
-
-            btn_save.setOnClickListener((View v) -> {
-                if (per_age.getText().toString().isEmpty()
-                    || per_sex.getText().toString().isEmpty()
-                    || per_weight.getText().toString().isEmpty()
-                    || per_height.getText().toString().isEmpty()) {
-                    Toast.makeText(CalculateActivity.this, "Toast：Something cannot be null", Toast.LENGTH_LONG).show();
-                } else {
-                    BmiEvaluation();
-                    Log.e(TAG,
-                        "age: " + age + " sex: " + sex + " height: " + height + " weight: " + weight + " BMI: " + bmi + " Evaluation: " + evaluation);
-                    CustomSqlLite dbHelp = new CustomSqlLite(CalculateActivity.this);
-                    final SQLiteDatabase sqLiteDatabase = dbHelp.getWritableDatabase();
-                    Cursor c = sqLiteDatabase.rawQuery("SELECT * FROM person Where _id=?", new String[] { String.valueOf(1) });
-
-                    ContentValues cv = new ContentValues();
-                    cv.put(PersonEnum.AGE.getValue(), age);
-                    cv.put(PersonEnum.SEX.getValue(), sex);
-                    cv.put(PersonEnum.HEIGHT.getValue(), height);
-                    cv.put(PersonEnum.WEIGHT.getValue(), weight);
-                    cv.put(PersonEnum.BMI.getValue(), bmi);
-                    cv.put(PersonEnum.EVALUATION.getValue(), evaluation);
-
-                    if (Objects.equals(0, c.getCount())) {
-                        sqLiteDatabase.insert(SdConstants.TABLE_PERSON, null, cv);
-                    } else if (Objects.equals(1, c.getCount())) {
-                        // FsqLiteDatabase.update(SdConstants.TABLE_PERSON, cv, "_id=" + String.valueOf(1), null);
-                        sqLiteDatabase.update(SdConstants.TABLE_PERSON, cv, "_id=" + Integer.valueOf(1).toString(), null);
-                    }
-
-                    Intent intent = new Intent(CalculateActivity.this, PersonalActivity.class);
-                    startActivity(intent);
-                    finish();
-                    c.close();
-                }
-            });
+            this.findView();
+            this.initListener();
         } catch (Exception e) {
-            Log.e(TAG, "CalculateAvtivity Exception: " + e, e);
-            e.printStackTrace();
+            SnoreException.getErrorException(TAG, e);
         } finally {
-            Log.i(TAG, "End CalculateAvtivity onCreate");
+            Log.d(TAG, "End CalculateAvtivity onCreate");
         }
     }
 
-    private void BmiEvaluation() {
-        age = Integer.parseInt(per_age.getText().toString());
-        sex = per_sex.getText().toString();
-        height = Double.parseDouble(per_height.getText().toString());
-        weight = Double.parseDouble(per_weight.getText().toString());
+    private void initListener() {
+        cancelBtn.setOnClickListener((View v) -> {
+            Intent intent = new Intent(CalculateActivity.this, PersonalActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
-        double heights = height / 100;
-        bmi = weight / (heights * heights);
+        saveBtn.setOnClickListener((View v) -> {
+            try {
+                this.validate();
 
-        //下面依照BMI給予Evaluation指示
-        if (bmi < 18.5) {
-            evaluation = getString(R.string.underweight);
-        } else if (bmi >= 18.5 && bmi <= 23.9) {
-            evaluation = getString(R.string.normal_weight);
-        } else if (bmi >= 24 && bmi <= 27.9) {
-            evaluation = getString(R.string.overweight);
-        } else if (bmi >= 28) evaluation = getString(R.string.obesity);
+                this.writeBean();
+
+                CustomSqlLite dbHelp = new CustomSqlLite(CalculateActivity.this);
+                final SQLiteDatabase sqLiteDatabase = dbHelp.getWritableDatabase();
+                Cursor c =
+                    sqLiteDatabase.rawQuery("SELECT * FROM person Where _id=?", new String[] { String.valueOf(1) });
+
+                ContentValues cv = new ContentValues();
+                cv.put(PersonEnum.AGE.getValue(), model.getAge());
+                cv.put(PersonEnum.SEX.getValue(), model.getSex());
+                cv.put(PersonEnum.HEIGHT.getValue(), model.getHeight());
+                cv.put(PersonEnum.WEIGHT.getValue(), model.getWeight());
+                cv.put(PersonEnum.BMI.getValue(), model.getBmi());
+                cv.put(PersonEnum.EVALUATION.getValue(), model.getEvaluation());
+
+                if (Objects.equals(0, c.getCount())) {
+                    sqLiteDatabase.insert(SdConstants.TABLE_PERSON, null, cv);
+                } else if (Objects.equals(1, c.getCount())) {
+                    // FsqLiteDatabase.update(SdConstants.TABLE_PERSON, cv, "_id=" + String.valueOf(1), null);
+                    sqLiteDatabase.update(SdConstants.TABLE_PERSON, cv, "_id=" + Integer.valueOf(1).toString(), null);
+                }
+
+                Intent intent = new Intent(CalculateActivity.this, PersonalActivity.class);
+                this.startActivity(intent);
+                this.finish();
+                c.close();
+            } catch (IllegalStateException e) {
+                Toast.makeText(CalculateActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                SnoreException.getErrorException(TAG, e);
+                Toast.makeText(CalculateActivity.this, "System fail", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void validate() throws IllegalStateException {
+        if (perAge.getText().toString().isEmpty()
+            || perSex.getText().toString().isEmpty()
+            || perWeight.getText().toString().isEmpty()
+            || perHeight.getText().toString().isEmpty()) {
+            throw new IllegalStateException("Some fields cannot be null!");
+        }
     }
 
     @Override
@@ -113,21 +125,14 @@ public class CalculateActivity extends AppCompatActivity implements AbstractInte
         return keyCode == KeyEvent.KEYCODE_BACK || super.onKeyDown(keyCode, event);
     }
 
-   /*@Override
-   public void onBackPressed() {
-      Intent intent = new Intent(CalculateAvtivity.this, PersonalActivity.class);
-      startActivity(intent);
-      finish();
-   }*/
-
     @Override
     public void findView() {
-        per_age = findViewById(R.id.per_age);
-        per_sex = findViewById(R.id.per_sex);
-        per_height = findViewById(R.id.per_height);
-        per_weight = findViewById(R.id.per_weight);
-        btn_cancel = findViewById(R.id.btn_cancel);
-        btn_save = findViewById(R.id.btn_save);
+        perAge = this.findViewById(R.id.per_age);
+        perSex = this.findViewById(R.id.per_sex);
+        perHeight = this.findViewById(R.id.per_height);
+        perWeight = this.findViewById(R.id.per_weight);
+        cancelBtn = this.findViewById(R.id.btn_cancel);
+        saveBtn = this.findViewById(R.id.btn_save);
     }
 
     @Override
@@ -138,6 +143,63 @@ public class CalculateActivity extends AppCompatActivity implements AbstractInte
     @Override
     public void setText() {
         // Do nothing
+    }
+
+    @Override
+    public void writeBean() {
+        model.setAge(Integer.parseInt(perAge.getText().toString()));
+        model.setSex(perSex.getText().toString());
+        model.setHeight(Double.parseDouble(perHeight.getText().toString()));
+        model.setWeight(Double.parseDouble(perWeight.getText().toString()));
+
+        double heights = model.getHeight() / 100;
+        double bmi = model.getWeight() / (heights * heights);
+        model.setBmi(bmi);
+
+        // 下面依照BMI給予Evaluation指示
+        if (bmi < 18.5) {
+            model.setEvaluation(this.getString(R.string.underweight));
+        } else if (bmi >= 18.5 && bmi <= 23.9) {
+            model.setEvaluation(this.getString(R.string.normal_weight));
+        } else if (bmi >= 24 && bmi <= 27.9) {
+            model.setEvaluation(this.getString(R.string.overweight));
+        } else if (bmi >= 28) {
+            model.setEvaluation(this.getString(R.string.obesity));
+        }
+
+        Log.d(TAG, model.toString());
+    }
+
+    public EditText getPerAge() {
+        return perAge;
+    }
+
+    public void setPerAge(EditText perAge) {
+        this.perAge = perAge;
+    }
+
+    public EditText getPerSex() {
+        return perSex;
+    }
+
+    public void setPerSex(EditText perSex) {
+        this.perSex = perSex;
+    }
+
+    public EditText getPerHeight() {
+        return perHeight;
+    }
+
+    public void setPerHeight(EditText perHeight) {
+        this.perHeight = perHeight;
+    }
+
+    public EditText getPerWeight() {
+        return perWeight;
+    }
+
+    public void setPerWeight(EditText perWeight) {
+        this.perWeight = perWeight;
     }
 
 }

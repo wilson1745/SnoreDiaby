@@ -24,7 +24,7 @@ public enum DrawInstantEnum {
 
     private String value;
 
-    private DrawInstantEnum(String value) {
+    DrawInstantEnum(String value) {
         this.value = value;
     }
 

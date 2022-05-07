@@ -192,4 +192,8 @@ public class LanguageActivity extends AppCompatActivity implements View.OnClickL
         return keyCode == KeyEvent.KEYCODE_BACK || super.onKeyDown(keyCode, event);
     }
 
+    @Override public void writeBean() {
+        // TODO
+    }
+
 }

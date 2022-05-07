@@ -419,4 +419,8 @@ public class DataActivity extends AppCompatActivity implements View.OnClickListe
         osasug_v.setText(sugOSA);
     }
 
+    @Override public void writeBean() {
+        // TODO
+    }
+
 }

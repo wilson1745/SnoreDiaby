@@ -26,6 +26,21 @@ public class Example3 {
     private ArrayList<SnoreStorage> listSnore;
     private int luxAlert;
 
+    private static final String[] dates = {
+        "2018.08.15 00:46:51",
+        "2018.08.15 01:46:51",
+        "2018.08.15 02:46:51",
+        "2018.08.15 03:46:51",
+        "2018.08.15 04:46:51",
+        "2018.08.15 05:46:51",
+        "2018.08.15 06:46:51",
+        "2018.08.15 07:30:42"
+    };
+
+    private static final int[] snores = { 0, 149, 156, 138, 0, 0, 0, 0 };
+
+    private static final int[] osas = { 0, 2, 4, 1, 0, 0, 0, 0 };
+
     public Example3(Context context) {
         this.context = context;
     }

@@ -13,12 +13,19 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.bristol.snorediaby.R;
-import com.bristol.snorediaby.web.view.activities.calculate.CalculateActivity;
 import com.bristol.snorediaby.common.exceptions.SnoreException;
 import com.bristol.snorediaby.repo.sqllite.CustomSqlLite;
 import com.bristol.snorediaby.web.view.AbstractInterface;
+import com.bristol.snorediaby.web.view.activities.calculate.CalculateActivity;
 import java.util.Objects;
 
+/**
+ * Function: PersonalActivity
+ * Description:
+ * Author: wilso
+ * Date: 2022/5/6
+ * MaintenancePersonnel: wilso
+ */
 public class PersonalActivity extends AppCompatActivity implements AbstractInterface {
 
     private final String TAG = this.getClass().getSimpleName();
@@ -118,6 +125,10 @@ public class PersonalActivity extends AppCompatActivity implements AbstractInter
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         Toast.makeText(this, R.string.back_keyDown, Toast.LENGTH_SHORT).show();
         return keyCode == KeyEvent.KEYCODE_BACK || super.onKeyDown(keyCode, event);
+    }
+
+    @Override public void writeBean() {
+        // TODO
     }
 
 }

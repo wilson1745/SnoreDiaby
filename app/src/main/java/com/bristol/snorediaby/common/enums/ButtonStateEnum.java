@@ -23,7 +23,7 @@ public enum ButtonStateEnum {
 
     private String value;
 
-    private ButtonStateEnum(String value) {
+    ButtonStateEnum(String value) {
         this.value = value;
     }
 

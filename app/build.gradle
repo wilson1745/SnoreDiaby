@@ -58,6 +58,12 @@ dependencies {
   implementation 'org.apache.commons:commons-lang3:3.0'
   // AOP
   implementation 'org.aspectj:aspectjrt:1.8.9'
+  // Dagger
+  implementation 'com.google.dagger:dagger:2.21'
+  annotationProcessor 'com.google.dagger:dagger-compiler:2.21'
+  // AutoService
+  //  implementation 'com.google.auto.service:auto-service:1.0-rc4'
+  implementation 'org.apache.commons:commons-collections4:4.1'
 
   testImplementation 'junit:junit:4.12'
 
