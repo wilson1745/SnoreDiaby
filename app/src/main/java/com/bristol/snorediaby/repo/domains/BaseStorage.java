@@ -1,4 +1,4 @@
-package com.bristol.snorediaby.repo.domain;
+package com.bristol.snorediaby.repo.domains;
 
 /**
  * Function: BaseStorage

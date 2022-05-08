@@ -1,8 +1,6 @@
-package com.bristol.snorediaby.repo.domain;
+package com.bristol.snorediaby.repo.domains;
 
 import android.content.Context;
-import java.math.BigInteger;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;

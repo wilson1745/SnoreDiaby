@@ -1,10 +1,10 @@
-package com.bristol.snorediaby.repo.domain.beans;
+package com.bristol.snorediaby.repo.domains.beans;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
 import com.bristol.snorediaby.R;
-import com.bristol.snorediaby.repo.domain.SnoreStorage;
+import com.bristol.snorediaby.repo.domains.SnoreStorage;
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.AxisBase;

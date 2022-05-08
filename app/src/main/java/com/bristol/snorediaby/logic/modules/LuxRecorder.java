@@ -5,7 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import com.bristol.snorediaby.repo.domain.LuxStorage;
+import com.bristol.snorediaby.repo.domains.LuxStorage;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;

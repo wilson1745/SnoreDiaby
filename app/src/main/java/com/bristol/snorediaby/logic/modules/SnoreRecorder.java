@@ -7,7 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 import com.bristol.snorediaby.R;
 import com.bristol.snorediaby.common.exceptions.SnoreException;
-import com.bristol.snorediaby.repo.domain.SnoreStorage;
+import com.bristol.snorediaby.repo.domains.SnoreStorage;
 import com.bristol.snorediaby.logic.snores.CustomMp3Recorder;
 import com.czt.mp3recorder.MP3Recorder;
 import com.shuyu.waveview.FileUtils;

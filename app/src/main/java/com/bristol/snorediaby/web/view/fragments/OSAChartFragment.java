@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.bristol.snorediaby.R;
 import com.bristol.snorediaby.common.exceptions.SnoreException;
-import com.bristol.snorediaby.repo.domain.SnoreStorage;
-import com.bristol.snorediaby.repo.domain.beans.OSABarChart;
+import com.bristol.snorediaby.repo.domains.SnoreStorage;
+import com.bristol.snorediaby.repo.domains.beans.OSABarChart;
 import java.util.ArrayList;
 
 public class OSAChartFragment extends Fragment {

@@ -1,10 +1,10 @@
-package com.bristol.snorediaby.repo.domain.beans;
+package com.bristol.snorediaby.repo.domains.beans;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
 import com.bristol.snorediaby.R;
-import com.bristol.snorediaby.repo.domain.LuxStorage;
+import com.bristol.snorediaby.repo.domains.LuxStorage;
 import com.bristol.snorediaby.logic.modules.MyMarkerView;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;

@@ -1,4 +1,4 @@
-package com.bristol.snorediaby.repo.domain;
+package com.bristol.snorediaby.repo.domains;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 
-public class Example3 {
+public class Example4 {
 
     private static final String TAG = "Example3";
     private final Context context;
@@ -26,22 +26,7 @@ public class Example3 {
     private ArrayList<SnoreStorage> listSnore;
     private int luxAlert;
 
-    private static final String[] dates = {
-        "2018.08.15 00:46:51",
-        "2018.08.15 01:46:51",
-        "2018.08.15 02:46:51",
-        "2018.08.15 03:46:51",
-        "2018.08.15 04:46:51",
-        "2018.08.15 05:46:51",
-        "2018.08.15 06:46:51",
-        "2018.08.15 07:30:42"
-    };
-
-    private static final int[] snores = { 0, 149, 156, 138, 0, 0, 0, 0 };
-
-    private static final int[] osas = { 0, 2, 4, 1, 0, 0, 0, 0 };
-
-    public Example3(Context context) {
+    public Example4(Context context) {
         this.context = context;
     }
 
@@ -62,29 +47,29 @@ public class Example3 {
         String str;
         String check;
 
-        Date beginDate = df.parse("2018.08.14 23:46:51");
-        Date endDate = df.parse("2018.08.15 07:30:42");
+        Date beginDate = df.parse("2018.08.15 23:37:46");
+        Date endDate = df.parse("2018.08.16 07:27:19");
         Date date = beginDate;
 
-        while (x <= 464) {
+        while (x <= 470) {
             LuxStorage luxStorage;
-            if (x < 314) {
+            if (x < 323) {
                 lux = new Random().nextFloat() * 1;
-            } else if (x < 336) {
+            } else if (x < 344) {
                 lux = (float) Math.random() * (20 - 15 + 1) + 15;
-            } else if (x < 358) {
+            } else if (x < 365) {
                 lux = (float) Math.random() * (25 - 20 + 1) + 20;
-            } else if (x < 380) {
+            } else if (x < 386) {
                 lux = (float) Math.random() * (30 - 25 + 1) + 25;
-            } else if (x < 402) {
+            } else if (x < 407) {
                 lux = (float) Math.random() * (35 - 30 + 1) + 30;
-            } else if (x < 424) {
+            } else if (x < 428) {
                 lux = (float) Math.random() * (40 - 35 + 1) + 35;
-            } else if (x < 446) {
+            } else if (x < 449) {
                 lux = (float) Math.random() * (45 - 40 + 1) + 40;
-            } else if (x < 463) {
+            } else if (x < 469) {
                 lux = (float) Math.random() * (50 - 45 + 1) + 45;
-            } else if (x == 464) {
+            } else if (x == 470) {
                 lux = (float) Math.random() * (55 - 50 + 1) + 50;
                 str = df.format(endDate);
                 luxStorage = new LuxStorage(str, lux);
@@ -106,24 +91,20 @@ public class Example3 {
             check = listLux.get(i).getDate();
 
             switch (check) {
-                case "2018.08.15 01:46:51":
+                case "2018.08.16 02:14:46":
                     listLux.get(i).updateLux(27);
                     luxAlert++;
                     break;
-                case "2018.08.15 01:47:51":
+                case "2018.08.16 02:15:46":
                     listLux.get(i).updateLux(27);
                     luxAlert++;
                     break;
 
-                case "2018.08.15 03:21:51":
+                case "2018.08.16 03:51:46":
                     listLux.get(i).updateLux(23);
                     luxAlert++;
                     break;
-                case "2018.08.15 02:22:51":
-                    listLux.get(i).updateLux(27);
-                    luxAlert++;
-                    break;
-                case "2018.08.15 03:23:51":
+                case "2018.08.16 03:52:46":
                     listLux.get(i).updateLux(27);
                     luxAlert++;
                     break;
@@ -131,18 +112,18 @@ public class Example3 {
         }
 
         String[] date1 = {
-            "2018.08.15 00:46:51",
-            "2018.08.15 01:46:51",
-            "2018.08.15 02:46:51",
-            "2018.08.15 03:46:51",
-            "2018.08.15 04:46:51",
-            "2018.08.15 05:46:51",
-            "2018.08.15 06:46:51",
-            "2018.08.15 07:30:42"
+            "2018.08.16 00:37:46",
+            "2018.08.16 01:37:46",
+            "2018.08.16 02:37:46",
+            "2018.08.16 03:37:46",
+            "2018.08.16 04:37:46",
+            "2018.08.16 05:37:46",
+            "2018.08.16 06:37:46",
+            "2018.08.16 07:27:19"
         };
 
-        int[] snore = { 0, 149, 156, 138, 0, 0, 0, 0 };
-        int[] osa = { 0, 2, 4, 1, 0, 0, 0, 0 };
+        int[] snore = { 0, 201, 157, 59, 78, 0, 0, 0 };
+        int[] osa = { 0, 2, 3, 0, 1, 0, 0, 0 };
 
         for (int i = 0; i < snore.length; i++) {
             SnoreStorage snoreStorage = new SnoreStorage(date1[i], snore[i], osa[i]);
@@ -151,13 +132,13 @@ public class Example3 {
     }
 
     private void saveData() {
-        double timeUseSec = 27840;
-        String start_time = "2018.08.14 23:46:51";
-        String end_time = "2018.08.15 07:30:42";
-        double sleepHour = 7.7;
+        double timeUseSec = 28200;
+        String start_time = "2018.08.15 23:37:46";
+        String end_time = "2018.08.16 07:27:19";
+        double sleepHour = 7.8;
         int timeToBed = 0;
-        String snoreTimes = "443";
-        String osaTimes = "7";
+        String snoreTimes = "495";
+        String osaTimes = "6";
 
         int snore = Integer.parseInt(snoreTimes);
         SnoreRecorder sR = new SnoreRecorder(context, 0, false);
@@ -208,5 +189,4 @@ public class Example3 {
             }
         }
     }
-
 }

@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.bristol.snorediaby.R;
 import com.bristol.snorediaby.common.exceptions.SnoreException;
-import com.bristol.snorediaby.repo.domain.LuxStorage;
-import com.bristol.snorediaby.repo.domain.beans.LuxLineChart;
+import com.bristol.snorediaby.repo.domains.LuxStorage;
+import com.bristol.snorediaby.repo.domains.beans.LuxLineChart;
 import java.util.ArrayList;
 
 public class LuxChartFragment extends Fragment {

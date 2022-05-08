@@ -1,4 +1,4 @@
-package com.bristol.snorediaby.repo.domain.beans;
+package com.bristol.snorediaby.repo.domains.beans;
 
 import com.bristol.snorediaby.R;
 import com.bristol.snorediaby.web.view.activities.data.DataActivity;

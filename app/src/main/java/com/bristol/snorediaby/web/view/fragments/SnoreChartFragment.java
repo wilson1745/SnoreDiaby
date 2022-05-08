@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.bristol.snorediaby.R;
 import com.bristol.snorediaby.common.exceptions.SnoreException;
-import com.bristol.snorediaby.repo.domain.SnoreStorage;
-import com.bristol.snorediaby.repo.domain.beans.SnoreBarChart;
+import com.bristol.snorediaby.repo.domains.SnoreStorage;
+import com.bristol.snorediaby.repo.domains.beans.SnoreBarChart;
 import java.util.ArrayList;
 
 public class SnoreChartFragment extends Fragment {
